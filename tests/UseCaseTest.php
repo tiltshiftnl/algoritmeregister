@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-class AlgoritmeRegisterTests extends TestCase
+class UseCaseTest extends TestCase
 {
 
     public function testUseCaseClassExists(): void
