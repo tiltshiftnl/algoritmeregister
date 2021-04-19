@@ -17,12 +17,18 @@ class AlgoritmeRegisterTests extends TestCase
         $this->assertEquals("object", gettype($useCase));
     }
 
-    public function testUseCaseTitle(): void
+    public function testGetSetUseCaseFields(): void
     {
-        $theTitle = "An Algorithm Use Case";
+        $fields = [
+            "Title" => "An Algorithm Use Case",
+            "Description" => "A short description of this use case."
+        ];
         $useCase = new Tiltshift\AlgoritmeRegister\UseCase();
-        $useCase->setTitle($theTitle);
-        $this->assertEquals($theTitle, $useCase->getTitle());
+        foreach ($fields as $key => $value) {
+            $useCase->{"set{$key}"}($value);
+            $this->assertEquals($value, $useCase->{"get{$key}"}());
+        }
+        
     }
 
 }

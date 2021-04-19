@@ -6,6 +6,7 @@ class UseCase
 {
 
     private $_title;
+    private $_description;
 
     public function setTitle(string $aTitle): void
     {
@@ -15,6 +16,16 @@ class UseCase
     public function getTitle(): string
     {
         return $this->_title;
+    }
+
+    public function setDescription(string $aDescription): void
+    {
+        $this->_description = $aDescription;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->_description;
     }
 
 }
