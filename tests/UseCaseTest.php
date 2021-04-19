@@ -11,18 +11,28 @@ class UseCaseTest extends TestCase
         $this->assertEquals("object", gettype($useCase));
     }
 
-    public function testGetSetUseCaseFields(): void
+    public function testUseCaseHasTitle(): void
     {
-        $fields = [
-            "Title" => "An Algorithm Use Case",
-            "Description" => "A short description of this use case.",
-            "Type" => "A type for this use case."
-        ];
+        $theTitle = "An Algorithm Use Case";
         $useCase = new Tiltshift\AlgoritmeRegister\UseCase();
-        foreach ($fields as $key => $value) {
-            $useCase->{"set{$key}"}($value);
-            $this->assertEquals($value, $useCase->{"get{$key}"}());
-        }
+        $useCase->setTitle($theTitle);
+        $this->assertEquals($useCase->getTitle(), $theTitle);
+    }
+
+    public function testUseCaseHasDescription(): void
+    {
+        $theDescription = "A short description of this use case.";
+        $useCase = new Tiltshift\AlgoritmeRegister\UseCase();
+        $useCase->setDescription($theDescription);
+        $this->assertEquals($useCase->getDescription(), $theDescription);
+    }
+
+    public function testUseCaseHasType(): void
+    {
+        $theType = "A type for this use case.";
+        $useCase = new Tiltshift\AlgoritmeRegister\UseCase();
+        $useCase->setType($theType);
+        $this->assertEquals($useCase->getType(), $theType);
     }
 
 }
