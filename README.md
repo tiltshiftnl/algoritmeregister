@@ -18,6 +18,10 @@ To run phpunit:
 
 The development state of this project is *concept*. Because of this, we do not accept pull requests nor issues yet.
 
+## Roadmap
+
+Please check out [Issues on Github](https://github.com/tiltshiftnl/algoritmeregister/issues) for the roadmap.
+
 ## Public Code
 
 This code base will be structured in line with the [Standard for Public Code](https://standard.publiccode.net/).
