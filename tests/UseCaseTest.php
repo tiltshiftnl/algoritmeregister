@@ -15,14 +15,14 @@ class UseCaseTest extends TestCase
     {
         $fields = [
             "Title" => "An Algorithm Use Case",
-            "Description" => "A short description of this use case."
+            "Description" => "A short description of this use case.",
+            "Type" => "A type for this use case."
         ];
         $useCase = new Tiltshift\AlgoritmeRegister\UseCase();
         foreach ($fields as $key => $value) {
             $useCase->{"set{$key}"}($value);
             $this->assertEquals($value, $useCase->{"get{$key}"}());
         }
-        
     }
 
 }
