@@ -4,15 +4,15 @@ AlgoritmeRegister (*Algorithm Registry*) is a Proof of Concept application that 
 
 ## Development environment using Docker
 
-See https://www.shiphp.com/blog/2017/phpunit-docker
+Switched to docker-compose: https://thephp.website/en/issue/php-docker-quick-setup/
 
 To get phpunit:
 
-`docker run --rm -v $(pwd):/app composer/composer:latest require --dev phpunit/phpunit ^6.0`
+`docker-compose run composer require --dev phpunit/phpunit`
 
 To run phpunit:
 
-`docker run -v $(pwd):/app --rm phpunit/phpunit:latest tests .`
+`docker-compose run phpunit`
 
 ## Contributing
 
