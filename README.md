@@ -18,6 +18,12 @@ To run slim:
 
 `docker-compose up slim`
 
+This will run the API at http://localhost:8080.
+
+To browse the API using HAL browser please check out:
+
+http://haltalk.herokuapp.com/explorer/browser.html#http://localhost:8080
+
 ## Contributing
 
 The development state of this project is *concept*. Because of this, we do not accept pull requests nor issues yet.

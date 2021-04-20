@@ -12,6 +12,8 @@ class ApiTest extends TestCase
         $this->_api = (new Tiltshift\AlgoritmeRegister\Api())->get();
     }
 
+    // FIXME: CORS TESTS OMMITTED
+
     public function testApiGetIndex()
     {
         $env = Slim\Http\Environment::mock([
@@ -23,7 +25,9 @@ class ApiTest extends TestCase
         $response = $this->_api->run(true);
         $this->assertSame(200, $response->getStatusCode());
         $data = json_decode((string)$response->getBody());
-        $this->assertSame("object", gettype($data->index));
+        $this->assertSame("string", gettype($data->title));
+        $this->assertSame("string", gettype($data->about));
+        $this->assertSame("object", gettype($data->_links));
     }
 
     public function testApiGetUseCases()
@@ -37,7 +41,8 @@ class ApiTest extends TestCase
         $response = $this->_api->run(true);
         $this->assertSame(200, $response->getStatusCode());
         $data = json_decode((string)$response->getBody());
-        $this->assertSame("array", gettype($data->useCases));
+        $this->assertSame("array", gettype($data->_embedded->useCases));
+        $this->assertSame("object", gettype($data->_links));
     }
 
 }

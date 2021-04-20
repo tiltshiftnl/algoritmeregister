@@ -5,19 +5,17 @@ namespace Tiltshift\AlgoritmeRegister;
 class AlgoritmeRegister
 {
 
-    public function getIndex(): array
-    {
-        return [
-            "index" => [
-                "useCases" => "/usecases"
-            ]
-        ];
-    }
-
     public function getUseCases(): array
     {
         return [
-            "useCases" => []
+            [
+                "title" => "Use Case 1",
+                "about" => "Dit is een Use Case"
+            ],
+            [
+                "title" => "Use Case 2",
+                "about" => "Dit is een Use Case"
+            ]
         ];
     }
 
