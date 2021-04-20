@@ -5,24 +5,26 @@ namespace Tiltshift\AlgoritmeRegister;
 class Api
 {
 
-    private $_app;
+    private $_slimApp;
 
     public function __construct()
     {
-        $this->_app = new \Slim\App();
+        $this->_slimApp = new \Slim\App();
 
-        $this->_app->get('/', function ($request, $response, $args) {
-            return $response->withStatus(200)->write('Hello World!');
+        $this->_slimApp->get('/', function ($request, $response, $args) {
+            $algoritmeRegister = new AlgoritmeRegister();
+            return $response->withJson($algoritmeRegister->getIndex());
         });
-        
-        $this->_app->get('/tests', function ($request, $response, $args) {
-            return $response->withStatus(200)->write('test');
+
+        $this->_slimApp->get('/usecases', function ($request, $response, $args) {
+            $algoritmeRegister = new AlgoritmeRegister();
+            return $response->withJson($algoritmeRegister->getUseCases());
         });
     }
 
-    public function run()
+    public function get(): object
     {
-        $this->_app->run();
+        return $this->_slimApp;
     }
 
 }

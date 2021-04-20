@@ -2,6 +2,6 @@
 
 require '../vendor/autoload.php';
 
-$app = new \Tiltshift\AlgoritmeRegister\Api();
+$api = (new \Tiltshift\AlgoritmeRegister\Api())->get();
 
-$app->run();
+$api->run();
