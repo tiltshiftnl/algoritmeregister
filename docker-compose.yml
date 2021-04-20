@@ -1,4 +1,7 @@
 version: '3'
+volumes:
+    logs:
+        driver: local
 services:
     composer:
         image: composer/composer:latest
@@ -17,3 +20,14 @@ services:
             - .:/app
         working_dir: /app
         entrypoint: vendor/bin/phpunit
+    slim:
+        image: php:7.4-alpine
+        working_dir: /var/www/html
+        command: php -S 0.0.0.0:8080 -t public
+        environment:
+            docker: "true"
+        ports:
+            - 8080:8080
+        volumes:
+            - .:/var/www/html
+            - logs:/var/www/logs

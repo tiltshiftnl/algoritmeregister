@@ -8,11 +8,15 @@ Switched to docker-compose: https://thephp.website/en/issue/php-docker-quick-set
 
 To get phpunit:
 
-`docker-compose run composer require --dev phpunit/phpunit`
+`docker-compose run composer require --dev phpunit/phpunit slim/slim "^3.0"`
 
 To run phpunit:
 
 `docker-compose run phpunit`
+
+To run slim:
+
+`docker-compose up slim`
 
 ## Contributing
 
