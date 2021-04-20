@@ -23,7 +23,7 @@ class ApiTest extends TestCase
         $response = $this->_api->run(true);
         $this->assertSame(200, $response->getStatusCode());
         $data = json_decode((string)$response->getBody());
-        $this->assertSame("array", gettype($data->index));
+        $this->assertSame("object", gettype($data->index));
     }
 
     public function testApiGetUseCases()

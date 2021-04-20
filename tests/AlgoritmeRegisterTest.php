@@ -5,10 +5,16 @@ use PHPUnit\Framework\TestCase;
 class AlgoritmeRegisterTest extends TestCase
 {
 
-    public function testAlgoritmeRegisterClassExists(): void
+    public function testGetIndex(): void
     {
         $algoritmeRegister = new Tiltshift\AlgoritmeRegister\AlgoritmeRegister();
-        $this->assertEquals("object", gettype($algoritmeRegister));
+        $this->assertEquals("array", gettype($algoritmeRegister->getIndex()));
+    }
+
+    public function testGetUseCases(): void
+    {
+        $algoritmeRegister = new Tiltshift\AlgoritmeRegister\AlgoritmeRegister();
+        $this->assertEquals("array", gettype($algoritmeRegister->getUseCases()));
     }
 
 }

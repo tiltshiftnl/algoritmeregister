@@ -8,7 +8,9 @@ class AlgoritmeRegister
     public function getIndex(): array
     {
         return [
-            "index" => []
+            "index" => [
+                "useCases" => "/usecases"
+            ]
         ];
     }
 
