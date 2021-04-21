@@ -14,6 +14,8 @@ To run phpunit:
 
 `docker-compose run phpunit`
 
+*make sure to add a `data` folder with write access*
+
 To run slim:
 
 `docker-compose up slim`
