@@ -6,7 +6,7 @@ AlgoritmeRegister (*Algorithm Registry*) is a Proof of Concept application that 
 
 Switched to docker-compose: https://thephp.website/en/issue/php-docker-quick-setup/
 
-To get phpunit:
+To install:
 
 `docker-compose run composer require --dev phpunit/phpunit slim/slim "^3.0"`
 
