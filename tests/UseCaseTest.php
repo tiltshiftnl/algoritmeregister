@@ -11,6 +11,26 @@ class UseCaseTest extends TestCase
         $this->assertEquals("object", gettype($useCase));
     }
 
+    public function testStoreAndRetrieveData()
+    {
+        $useCase = new Tiltshift\AlgoritmeRegister\UseCase();
+        $theTitle = "An Algorithm Use Case";
+        $theDescription = "A short description of this use case.";
+        $theType = "A type for this use case.";
+        $useCase->setTitle($theTitle);
+        $useCase->setDescription($theDescription);
+        $useCase->setType($theType);
+        $useCase->store();
+        $this->assertEquals(40, strlen($useCase->getId()));
+        $this->assertTrue(ctype_xdigit($useCase->getId()));
+        $retrievedUseCase = new Tiltshift\AlgoritmeRegister\UseCase();
+        $retrievedUseCase->retrieve($useCase->getId());
+        $this->assertEquals($theTitle, $retrievedUseCase->getTitle());
+        $this->assertEquals($theDescription, $retrievedUseCase->getDescription());
+        $this->assertEquals($theType, $retrievedUseCase->getType());
+        $useCase->remove();
+    }
+
     public function testUseCaseHasTitle(): void
     {
         $theTitle = "An Algorithm Use Case";
