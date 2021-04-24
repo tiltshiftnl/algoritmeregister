@@ -20,6 +20,12 @@ class UseCase
         return $id;
     }
 
+    private function validateId($anId): bool
+    {
+        $pattern = '/^[A-F0-9]{40}$/';
+        return (bool) preg_match($pattern, $anId);
+    }
+
     private function getStorageFilepath(): string
     {
         $sha1 = sha1($this->id);
@@ -28,15 +34,25 @@ class UseCase
 
     public function store(): void
     {
-        $this->id = $this->generateId();
+        if (empty($this->id)) {
+            $this->id = $this->generateId();
+        }
         $data = get_object_vars($this);
         file_put_contents($this->getStorageFilepath(), json_encode($data));
     }
 
     public function retrieve($theId): void
     {
+        $pattern = '/^[A-F0-9]{40}$/';
+        if (!preg_match($pattern, $theId)) {
+            throw new \Exception("Illegal ID");
+        }
         $this->id = $theId;
-        $data = json_decode(file_get_contents($this->getStorageFilepath()));
+        $filepath = $this->getStorageFilepath();
+        if (!file_exists($filepath)) {
+            throw new \Exception("Non-existing ID");
+        }
+        $data = json_decode(file_get_contents($filepath));
         $this->title = $data->title;
         $this->description = $data->description;
         $this->type = $data->type;
