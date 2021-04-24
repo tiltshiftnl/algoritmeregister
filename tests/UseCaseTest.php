@@ -87,7 +87,7 @@ class UseCaseTest extends TestCase
         $useCase->retrieve("TOOLONGTOOLONGTOOLONGTOOLONGTOOLONGTOOLONG");
     }
 
-    public function testUseCaseRetrieveNonExistingId()
+    public function testUseCaseRetrieveNonExistingIdThrowsException()
     {
         $useCase = new Tiltshift\AlgoritmeRegister\UseCase();
         $this->expectException(\Exception::class);
